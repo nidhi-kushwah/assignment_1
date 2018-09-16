@@ -10,6 +10,9 @@
 class DrawDownCalculator():
 
     def find_drawdown(self, array, number_of_drawdowns):
+        """
+            Finds drawdowns, sorts them and returns number of drawdowns
+        """
         drawdown_list = list()
         i=0
         # To begin with set high
@@ -32,6 +35,9 @@ class DrawDownCalculator():
         return drawdown_list[:number_of_drawdowns]
 
     def __find_highest_along_the_way(self, array, current, tracker):
+        """
+            Finds highest value index untile the next fall happens
+        """
         for index in range(tracker + 1, len(array)):
             element = array[index]
             if element >= current:
@@ -41,6 +47,9 @@ class DrawDownCalculator():
         return current, tracker
 
     def __find_troughs_along_the_way(self,array, current, current_loc):
+        """
+            Finds lowest value index until the next rise happens
+        """
         list_of_elements = list()
         for tracker in range(current_loc + 1, len(array)):
             element = array[tracker]
@@ -54,6 +63,9 @@ class DrawDownCalculator():
 
 
     def __find_peaks_along_the_way(self, array, high, current_loc):
+        """
+            Tries to progressively find the peaks until the index starts to fall
+        """   
         for tracker in range(current_loc + 1, len(array)):
             element = array[tracker]
             if element > high:
@@ -64,6 +76,9 @@ class DrawDownCalculator():
         return high, position
 
     def __get_minimum(self, indiceslist):
+        """
+            Returns minimum in the list
+        """
         lowest = indiceslist[0]
         for element in indiceslist:
             if lowest > element:
@@ -72,6 +87,9 @@ class DrawDownCalculator():
 
 
     def __get_maximum(self, indiceslist):
+        """
+            Returns maximum in the list
+        """
         highest = indiceslist[0]
         for element in indiceslist:
             if highest < element:
