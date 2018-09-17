@@ -71,9 +71,9 @@ class DrawDownCalculator():
         return lowest
 
 
-    def __get_maximum(self, indiceslist):
-        highest = indiceslist[0]
-        for element in indiceslist:
-            if highest < element:
-                highest = element
-        return highest
+    # def __get_maximum(self, indiceslist):
+    #     highest = indiceslist[0]
+    #     for element in indiceslist:
+    #         if highest < element:
+    #             highest = element
+    #     return highest
